@@ -3,16 +3,35 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { LoginPageComponent } from './login-page/login-page.component';
+import { HomePageComponent } from './home-page/home-page.component';
+
+//Angular Material Imports
+import { MatInputModule } from '@angular/material/input';
+import { MatFormFieldModule } from '@angular/material/form-field';
+
+
+import { SignupPageModule } from './signup-page/signup-page.module';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+
+    LoginPageComponent,
+    HomePageComponent,
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    BrowserAnimationsModule,
+
+    SignupPageModule,
+
+    MatInputModule,
+    MatFormFieldModule
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

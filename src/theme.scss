@@ -1,0 +1,54 @@
+// Import theming functions
+@import '@angular/material/theming';
+
+$dark_blue_grey: #032d42;
+$green: #00bf63;
+$danger: #f44336;
+$amber_orange: #ffbf00;
+
+// https://stackoverflow.com/questions/75246804/mat-form-field-outline-border-color
+::ng-deep {
+    .mdc-text-field--outlined {
+        --mdc-outlined-text-field-outline-width: 2px !important;
+    }
+
+    //The below code apply when the input field is empty or intial state of the input field
+    .mdc-notched-outline > * {
+        border-color: $dark_blue_grey !important;
+    }
+
+    // When field is valid and focused
+    .mdc-text-field--focused .mdc-notched-outline > * {
+        border-color: $green !important;
+    }
+
+    .mdc-text-field--focused .mat-mdc-form-field-flex .mat-mdc-floating-label {
+        color: $green !important;
+    }
+
+    // When field is invalid 
+    .mdc-text-field--invalid .mdc-notched-outline > * {
+       border-color: $danger !important;
+    }
+
+    .mdc-text-field--invalid .mat-mdc-form-field-flex .mat-mdc-floating-label {
+        color: $danger !important;
+    }
+}
+
+@mixin button-styles($background-color, $text-color) {
+    width: 100% !important;
+    background-color: $background-color !important;
+    padding: 20px 0px;
+    color: $text-color !important;
+    font-size: 1rem;
+    font-weight: bold;
+}
+
+.error {
+    color: $danger !important;
+}
+
+.success {
+    color: $green !important;
+}

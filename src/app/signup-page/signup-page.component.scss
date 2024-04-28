@@ -1,0 +1,97 @@
+@import '../../theme.scss';
+
+.bg_nav_color {
+    background-color: #032d42;
+    min-height: 100vh;
+}
+
+.child_div {
+    background-color: white;
+    min-height: 100vh;
+}
+
+.custom_input {
+    width: 100% !important;
+}
+
+.enabled {
+    @include button-styles(#032d42, #ffffff);
+}
+
+.disabled {
+    @include button-styles(#99c7de, #032d42);
+}
+
+.custom_button_icon {
+    width: 20px;
+    height: 20px;
+    margin-right: 10px;
+}
+
+.or_social_signup { 
+    display: flex; 
+    flex-direction: row; 
+} 
+  
+.or_social_signup:before, 
+.or_social_signup:after { 
+    content: ""; 
+    flex: 1 1; 
+    border-bottom: 2px solid $dark_blue_grey; 
+    padding: 0 7px;
+    margin: auto; 
+} 
+  
+img { 
+    height: 100px; 
+    width: 100px; 
+    border-radius: 50%; 
+} 
+  
+::ng-deep {
+    .bg-success {
+        --mdc-linear-progress-active-indicator-color: #00bf63;
+        --mdc-linear-progress-track-color: #76dfad;
+    }
+
+    .bg-error {
+        --mdc-linear-progress-active-indicator-color: #f44336;
+        --mdc-linear-progress-track-color: #ea8e87;
+    }
+
+    .bg-intermediate {
+        --mdc-linear-progress-active-indicator-color: #ffbf00;
+        --mdc-linear-progress-track-color: #e4cb81;
+    }
+}
+
+.error-message {
+    color: $danger;
+    font-weight: bold;
+}
+
+.success-message {
+    color: $green;
+    font-weight: bold;
+}
+
+.intermediate-message {
+    color: $amber_orange;
+    font-weight: bold;
+}
+
+.ps-strength-message {
+    margin-top: -10px;
+    margin-bottom: 5px;
+}
+
+@media screen and (max-width: 772px) {
+    .column_one {
+        display: none;
+    }
+
+    .ps-strength-message {
+        margin-top: 0px;
+        margin-bottom: 0px;
+    }
+}

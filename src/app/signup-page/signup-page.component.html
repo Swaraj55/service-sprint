@@ -1,0 +1,139 @@
+<section id="signup-page">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-5 child_div">
+                <div class="row">
+                    <div class="mt-5">
+                        <div class="row">
+                            <div class="ms-2 h2 fw-bolder">
+                                Sign Up
+                            </div>
+                            <div class="ms-2 mb-3 fs-6">
+                                Already have an account? <a class="text-primary">Log in</a>
+                            </div>
+                        </div>
+    
+                        <form [formGroup]="signupForm" name="signupForm" #updateSignupForm = "ngForm" (ngSubmit)="onSubmit()"  novalidate>
+                            <div class="row px-2 mt-2 text-center">
+                                <div class="col-md-6">
+                                    <mat-form-field appearance="outline" class="custom_input">
+                                        <mat-label>Firstname</mat-label>
+                                        <input matInput formControlName="firstname" required>
+                                        <mat-error *ngIf="signupForm.controls['firstname'].hasError('required')">
+                                            <mat-icon matSuffix>report_problem</mat-icon> Required.
+                                        </mat-error>
+                                    </mat-form-field>
+                                </div>
+        
+                                <div class="col-md-6">
+                                    <mat-form-field appearance="outline" class="custom_input">
+                                        <mat-label>Lastname</mat-label>
+                                        <input type="text" formControlName="lastname" matInput required>
+                                        <mat-error *ngIf="signupForm.controls['lastname'].hasError('required')">
+                                            <mat-icon matSuffix>report_problem</mat-icon> Required.
+                                        </mat-error>
+                                    </mat-form-field>
+                                </div>
+                            </div>
+        
+                            <div class="row px-2 text-center">
+                                <div class="col-12">
+                                    <mat-form-field appearance="outline" class="custom_input">
+                                        <mat-label>Username</mat-label>
+                                        <input type="text" formControlName="username" matInput required>
+                                        <mat-icon matSuffix>person</mat-icon>
+                                        <mat-error *ngIf="signupForm.controls['username'].hasError('required')">
+                                            <mat-icon matSuffix>report_problem</mat-icon> Required.
+                                        </mat-error>
+                                    </mat-form-field>
+                                </div>
+                            </div>
+        
+                            <div class="row px-2 text-center">
+                                <div class="col-12">
+                                    <mat-form-field appearance="outline" class="custom_input">
+                                        <mat-label>Email</mat-label>
+                                        <input type="email" formControlName="email" matInput required>
+                                        <mat-icon matSuffix>mail</mat-icon>
+                                        <mat-error *ngIf="signupForm.controls['email'].hasError('required')">
+                                            <mat-icon matSuffix>report_problem</mat-icon> Required.
+                                        </mat-error>
+                                        <mat-error *ngIf="signupForm.controls['email'].hasError('email')">
+                                            <mat-icon matSuffix>report_problem</mat-icon> Suggested format (name@company.com)                                            
+                                        </mat-error>
+                                    </mat-form-field>
+                                </div>
+                            </div>
+        
+                            <div class="row px-2 text-center">
+                                <div class="col-12">
+                                    <mat-form-field appearance="outline" class="custom_input">
+                                        <mat-label>Password</mat-label>
+                                        <input [type]="passwordHide ? 'password' : 'text'" formControlName="password" matInput required autocomplete="off" (focus)="passwordFocused = true" (blur)="passwordFocused = false">
+                                        <button mat-icon-button matSuffix (click)="passwordHide = !passwordHide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="passwordHide">
+                                            <mat-icon>{{passwordHide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                                        </button>
+                                        <mat-error *ngIf="signupForm.controls['password'].hasError('required')">
+                                            <mat-icon matSuffix>report_problem</mat-icon> Required.
+                                        </mat-error>
+                                        <mat-error *ngIf="signupForm.controls['password'].hasError('minlength')">
+                                            <mat-icon matSuffix>report_problem</mat-icon> Password must contain at least 8 characters.
+                                        </mat-error>
+                                        <mat-error *ngIf="signupForm.controls['password'].errors?.['noSpace']">
+                                            <mat-icon matSuffix>report_problem</mat-icon>  Password must not contain space.
+                                        </mat-error>
+                                    </mat-form-field>
+                                    <div class="password-strength-meter row" *ngIf="passwordFocused">
+                                        <div class="col-xs-12 col-sm-12 col-md-8">
+                                            <mat-progress-bar *ngIf="passwordStrength > 0" mode="determinate" [value]="passwordStrength * 20" [ngClass]="{'bg-error': getStrengthColor(passwordStrength) === 'warn', 'bg-success': getStrengthColor(passwordStrength) === 'primary', 'bg-intermediate': getStrengthColor(passwordStrength) === 'accent'}"> </mat-progress-bar>
+                                        </div>
+                                        <div class=" col-xs-12 col-sm-12 col-md-4 ps-strength-message">
+                                            <span [ngClass]="{'error-message': getStrengthColor(passwordStrength) === 'warn', 'success-message': getStrengthColor(passwordStrength) === 'primary', 'intermediate-message': getStrengthColor(passwordStrength) === 'accent'}" *ngIf="passwordStrength > 0">
+                                                {{ getStrengthMessage(passwordStrength) }}
+                                            </span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+        
+                            <div class="row px-2 text-center">
+                                <div class="col-12">
+                                    <mat-form-field appearance="outline" class="custom_input">
+                                        <mat-label>Confirm Password</mat-label>
+                                        <input [type]="confirmPasswordHide ? 'password' : 'text'"  formControlName="confirm_password" matInput required>
+                                        <button mat-icon-button matSuffix (click)="confirmPasswordHide = !confirmPasswordHide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="confirmPasswordHide">
+                                            <mat-icon>{{confirmPasswordHide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                                        </button>
+                                        <mat-error *ngIf="signupForm.controls['confirm_password'].hasError('required')">
+                                            <mat-icon matSuffix>report_problem</mat-icon> Required.
+                                        </mat-error>
+                                        <mat-error *ngIf="signupForm.controls['confirm_password'].errors?.['notSame']">
+                                            <mat-icon matSuffix>report_problem</mat-icon> Password and Confirm Password must be same.
+                                        </mat-error>
+                                    </mat-form-field>
+                                </div>
+                            </div>
+
+                            <div class="col-12 px-2">
+                                <button type="submit" [disabled]="signupForm.invalid" mat-raised-button [ngClass]="{'disabled': signupForm.invalid, 'enabled': !signupForm.invalid}">Sign Up</button>
+                            </div>
+
+                            <div class="col-12 px-2 mt-3">
+                                <h6 class="or_social_signup"> Social Signup</h6>
+                            </div>
+                            
+                            <div class="col-12 px-2 mt-3">
+                                <button type="button" mat-raised-button class="enabled">
+                                    <img src="/assets/google.png" class="custom_button_icon" alt="">Sign Up with Google
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-7 bg_nav_color column_one">
+                
+            </div>
+        </div>
+    </div>
+</section>
