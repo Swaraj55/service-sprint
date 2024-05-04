@@ -17,12 +17,41 @@ export class SignupPageComponent {
   confirmPasswordHide: boolean = true;
   passwordFocused: boolean = false;
 
+  imagesContainer: any = [
+    {
+      imageSrcUrl: '/assets/image/signup_image_1.jpg',
+      imageAlt: 'Signup First'
+    },
+    {
+      imageSrcUrl: '/assets/image/signup_image_2.jpg',
+      imageAlt: 'Signup Second'
+    },
+    {
+      imageSrcUrl: '/assets/image/signup_image_3.jpg',
+      imageAlt: 'Signup Third'
+    },
+    {
+      imageSrcUrl: '/assets/image/signup_image_4.jpg',
+      imageAlt: 'Signup Fourth'
+    }
+  ];
+
+  selectedIndex: number = 0;
+  indicator: boolean = true;
+  controls: boolean = true;
+  autoSlide: boolean = true;
+  slideDuration: number = 4000;//Default to 4 seconds
+
   constructor(
     private formBuilder: UntypedFormBuilder,
     private passwordStrengthService: PasswordStrengthService
   ) {}
 
   ngOnInit() {
+    if(this.autoSlide) {
+      this.autoSlideImages();
+    }
+
     this.signupForm = this.formBuilder.group({
       firstname: ['', [Validators.required]],
       lastname: ['', [Validators.required]],
@@ -81,6 +110,26 @@ export class SignupPageComponent {
       return 'Medium password';
     } else {
       return 'Strong password';
+    }
+  }
+
+  //changes slide in every 3 seconds
+  autoSlideImages() {
+    setInterval(() => {
+      this.onNextClick();
+    }, this.slideDuration);
+  }
+
+  //set index of images on dot/indicator click
+  selectImage(index: number) {
+    this.selectedIndex = index;
+  }
+
+  onNextClick() {
+    if(this.selectedIndex === this.imagesContainer.length - 1) {
+      this.selectedIndex = 0;
+    } else {
+      this.selectedIndex++;
     }
   }
   

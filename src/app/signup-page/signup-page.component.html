@@ -1,5 +1,5 @@
 <section id="signup-page">
-    <div class="container-fluid">
+    <div class="container-fluid child_div">
         <div class="row">
             <div class="col-md-5 child_div">
                 <div class="row">
@@ -8,7 +8,7 @@
                             <div class="ms-2 h2 fw-bolder">
                                 Sign Up
                             </div>
-                            <div class="ms-2 mb-3 fs-6">
+                            <div class="ms-2 mb-3 fs-6 fw-bolder">
                                 Already have an account? <a class="text-primary">Log in</a>
                             </div>
                         </div>
@@ -124,7 +124,7 @@
                             
                             <div class="col-12 px-2 mt-3">
                                 <button type="button" mat-raised-button class="enabled">
-                                    <img src="/assets/google.png" class="custom_button_icon" alt="">Sign Up with Google
+                                    <img src="/assets/social-icons/google.png" class="custom_button_icon" alt="">Sign Up with Google
                                 </button>
                             </div>
                         </form>
@@ -132,7 +132,28 @@
                 </div>
             </div>
             <div class="col-md-7 bg_nav_color column_one">
-                
+                <div class="row">
+                    <div class="col-2">
+
+                    </div>
+                    <div class="col-8 mt-5">
+                        <div class="custom_carousel mt-5 signup_image_section">
+                            <img *ngFor="let image of imagesContainer; let i=index;" 
+                            [src]="image.imageSrcUrl" [alt]="image.imageAlt" class="fade" [ngClass]="{'image-active': selectedIndex === i}">
+                        
+                            <!-- Dots -->
+                            <div *ngIf="indicator" class="carousel-dot-container">
+                                <span *ngFor="let dot of imagesContainer;let i=index;" 
+                                       class="dot" [ngClass]="{'active': selectedIndex === i}"
+                                       (click)="selectImage(i)">
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-2">
+
+                    </div>
+                </div>
             </div>
         </div>
     </div>
