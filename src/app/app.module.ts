@@ -13,12 +13,11 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 
 
 import { SignupPageModule } from './signup-page/signup-page.module';
+import { LoginPageModule } from './login-page/login-page.module';
 
 @NgModule({
   declarations: [
     AppComponent,
-
-    LoginPageComponent,
     HomePageComponent,
   ],
   imports: [
@@ -27,6 +26,7 @@ import { SignupPageModule } from './signup-page/signup-page.module';
     BrowserAnimationsModule,
 
     SignupPageModule,
+    LoginPageModule,
 
     MatInputModule,
     MatFormFieldModule

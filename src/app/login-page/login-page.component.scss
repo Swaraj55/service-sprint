@@ -1,0 +1,60 @@
+@import '../../theme.scss';
+
+.login_right_title {
+    color: $light_grey;
+    margin-top: 60px;
+}
+
+.bg_nav_color {
+    background-color: #032d42;
+    min-height: 100vh;
+}
+
+.custom_input {
+    width: 100% !important;
+}
+
+.child_div {
+    background-color: white;
+    min-height: 100vh;
+}
+
+.enabled {
+    @include button-styles(#032d42, #ffffff);
+}
+
+.disabled {
+    @include button-styles(#99c7de, #032d42);
+}
+
+.custom_button_icon {
+    width: 20px;
+    height: 20px;
+    margin-right: 10px;
+    border-radius: 50%; 
+}
+
+.or_social_signup { 
+    display: flex; 
+    flex-direction: row; 
+} 
+  
+.or_social_signup:before, 
+.or_social_signup:after { 
+    content: ""; 
+    flex: 1 1; 
+    border-bottom: 2px solid $dark_blue_grey; 
+    padding: 0 7px;
+    margin: auto; 
+} 
+  
+img { 
+    height: 100px; 
+    width: 100px; 
+} 
+
+@media screen and (max-width: 772px) {
+    .column_one {
+        display: none;
+    }
+}

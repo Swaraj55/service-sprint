@@ -1,17 +1,62 @@
 <section id="signup-page">
-    <div class="container-fluid child_div">
+    <div class="container-fluid">
         <div class="row">
-            <div class="col-md-5 child_div">
+            <div class="col-md-7 bg_nav_color column_one">
+                <div class="mt-2">
+                    <img src="/assets/image/frame_2.png" alt="Like" style="width: 200px;height: 60px;">
+                </div>
+                <div class="row">
+                    <div class="col-1">
+
+                    </div>
+                    <div class="col-10 mt-2 txt_white">
+                        <div class="h2 fw-bolder signup_right_title">Set up your Servicesprint account</div>
+                        <div class="d-flex mt-4">
+                            <div>
+                                <img src="/assets/image/like.png" alt="Like" style="width: 40px;height: 40px;">
+                            </div>
+                            <div class="ps-4 fw-bolder h5">
+                                Unify your single identity throughout the Servicesprint digital ecosystem and streamline your experience.
+                            </div>
+                        </div>
+
+                        <div class="d-flex mt-5">
+                            <div>
+                                <img src="/assets/image/settings.png" alt="Settings" style="width: 40px;height: 40px;">
+                            </div>
+                            <div class="ps-4 fw-bolder h5">
+                                Begin receiving tailored recommendations aligned with your interests and priorities through Servicesprint.
+                            </div>
+                        </div>
+
+                        <div class="d-flex mt-5">
+                            <div>
+                                <img src="/assets/image/laptop.png" alt="Laptop" style="width: 40px;height: 40px;">
+                            </div>
+                            <div class="ps-4 fw-bolder h5">
+                                Access your free trials, downloads, and demos effortlessly with a single login on Servicesprint.
+                            </div>
+                        </div>
+
+                        <div class="d-flex mt-5">
+                            <div class="pt-2 fw-bolder h5">
+                                Require assistance? <span style="color: #00bf63;">Our Servicesprint FAQ is here to guide you.</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-1">
+
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-5 pb-4 child_div">
                 <div class="row">
                     <div class="mt-3">
-                        <div class="row">
-                            <img src="/assets/image/frame_1.png" alt="Product Logo" style="width: 300px;height: 70px;">
-                            <div class="ms-2 h2 fw-bolder">
-                                Sign Up
-                            </div>
-                            <div class="ms-2 mb-3 fs-6 fw-bolder">
-                                Already have an account? <a class="text-primary" [routerLink]="['/login']">Log in</a>
-                            </div>
+                        <div class="ms-2 h2 fw-bolder">
+                            Sign Up
+                        </div>
+                        <div class="ms-2 mb-5 fs-6 fw-bolder">
+                            Already have an account? <a style="color: #00bf63;" [routerLink]="['/login']">Log in</a>
                         </div>
     
                         <form [formGroup]="signupForm" name="signupForm" #updateSignupForm = "ngForm" (ngSubmit)="onSubmit()"  novalidate>
@@ -129,51 +174,6 @@
                                 </button>
                             </div>
                         </form>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-7 bg_nav_color column_one">
-                <div class="row">
-                    <div class="col-1">
-
-                    </div>
-                    <div class="col-10 mt-5 txt_white">
-                        <div class="h2 fw-bolder signup_right_title">Set up your Servicesprint account</div>
-                        <div class="d-flex mt-4">
-                            <div>
-                                <img src="/assets/image/like.png" alt="Like" style="width: 50px;height: 50px;">
-                            </div>
-                            <div class="ps-4 pt-2 fw-bolder h5">
-                                Unify your single identity throughout the Servicesprint digital ecosystem and streamline your experience.
-                            </div>
-                        </div>
-
-                        <div class="d-flex mt-5">
-                            <div>
-                                <img src="/assets/image/settings.png" alt="Settings" style="width: 50px;height: 50px;">
-                            </div>
-                            <div class="ps-4 pt-2 fw-bolder h5">
-                                Begin receiving tailored recommendations aligned with your interests and priorities through Servicesprint.
-                            </div>
-                        </div>
-
-                        <div class="d-flex mt-5">
-                            <div>
-                                <img src="/assets/image/laptop.png" alt="Laptop" style="width: 50px;height: 50px;">
-                            </div>
-                            <div class="ps-4 pt-2 fw-bolder h5">
-                                Access your free trials, downloads, and demos effortlessly with a single login on Servicesprint.
-                            </div>
-                        </div>
-
-                        <div class="d-flex mt-5">
-                            <div class="pt-2 fw-bolder h5">
-                                Require assistance? <span style="color: #00bf63;">Our Servicesprint FAQ is here to guide you.</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-1">
-
                     </div>
                 </div>
             </div>

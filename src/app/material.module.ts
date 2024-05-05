@@ -7,6 +7,7 @@ import { MatListModule } from '@angular/material/list';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
+import { MatCheckboxModule } from '@angular/material/checkbox';
 
 @NgModule({
   imports: [
@@ -17,7 +18,8 @@ import { MatProgressBarModule } from '@angular/material/progress-bar';
     MatListModule,
     MatSidenavModule,
     MatToolbarModule,
-    MatProgressBarModule
+    MatProgressBarModule,
+    MatCheckboxModule
   ],
   exports: [
     MatButtonModule,
@@ -27,7 +29,8 @@ import { MatProgressBarModule } from '@angular/material/progress-bar';
     MatListModule,
     MatSidenavModule,
     MatToolbarModule,
-    MatProgressBarModule
+    MatProgressBarModule,
+    MatCheckboxModule
   ],
 })
 export class MaterialModule {}
