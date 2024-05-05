@@ -26,6 +26,7 @@
     width: 20px;
     height: 20px;
     margin-right: 10px;
+    border-radius: 50%; 
 }
 
 .or_social_signup { 
@@ -45,7 +46,6 @@
 img { 
     height: 100px; 
     width: 100px; 
-    border-radius: 50%; 
 } 
   
 ::ng-deep {
@@ -157,4 +157,14 @@ img {
     to {
         opacity: 1;
     }
+}
+
+.signup_right_title {
+    color: $light_grey;
+    margin-top: 60px;
+    border-bottom: 4px solid $green;
+    padding-bottom: 5px;
+    position: relative;
+    display: inline-block;
+    text-decoration: none;
 }

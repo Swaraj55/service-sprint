@@ -5,6 +5,7 @@ $dark_blue_grey: #032d42;
 $green: #00bf63;
 $danger: #f44336;
 $amber_orange: #ffbf00;
+$light_grey: #ccc;
 
 // https://stackoverflow.com/questions/75246804/mat-form-field-outline-border-color
 ::ng-deep {
@@ -24,6 +25,7 @@ $amber_orange: #ffbf00;
 
     .mdc-text-field--focused .mat-mdc-form-field-flex .mat-mdc-floating-label {
         color: $green !important;
+        font-weight: bold;
     }
 
     // When field is invalid 
@@ -33,6 +35,7 @@ $amber_orange: #ffbf00;
 
     .mdc-text-field--invalid .mat-mdc-form-field-flex .mat-mdc-floating-label {
         color: $danger !important;
+        font-weight: bold;
     }
 }
 
@@ -51,4 +54,8 @@ $amber_orange: #ffbf00;
 
 .success {
     color: $green !important;
+}
+
+.txt_white {
+    color: $light_grey;
 }

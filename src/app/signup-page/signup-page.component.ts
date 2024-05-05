@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { AbstractControl, FormGroup, UntypedFormBuilder, UntypedFormGroup, ValidationErrors, Validators } from '@angular/forms';
 import { PasswordStrengthService } from './password-strength.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-signup-page',
@@ -44,6 +45,7 @@ export class SignupPageComponent {
 
   constructor(
     private formBuilder: UntypedFormBuilder,
+    private router: Router,
     private passwordStrengthService: PasswordStrengthService
   ) {}
 
@@ -131,6 +133,10 @@ export class SignupPageComponent {
     } else {
       this.selectedIndex++;
     }
+  }
+
+  navigateTo() {
+    this.router.navigate(['/login'])
   }
   
   onSubmit() {
